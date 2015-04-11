@@ -52,9 +52,9 @@ SensorData.print(tempC);                             //write temperature data to
 SensorData.print(",");                               //write a commma
 SensorData.print(pressure);
 SensorData.print(",");
-SensorData.print(altitude);                        //write pressure and end the line (println)
+SensorData.print(altitude);                        //write pressure
 SensorData.print(",");
-SensorData.print(sealevelpressure);
+SensorData.println(sealevelpressure);            // and end the line (println)
 SensorData.close();                                  //close the file
 }
 }
