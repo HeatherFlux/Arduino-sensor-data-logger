@@ -8,29 +8,33 @@ Adafruit_BMP085 Sensor;  // create sensor object called mySensor
 
 // Ok everyone so this is the base that we will have for our data output to sd card coding.
 
+// Float is used to create variables for your program, say you want have a sound level sensor you would first use 'include'
+// to tell the program its gonna need the sound sensors library, then you would 'float' that variable to be used by the program.
 float tempC;  // Variable for holding temp in C
 float pressure; //Variable for holding pressure reading
 float altitude; //Variable Fo altitude
-float sealevelpressure;
+float sealevelpressure; // Variable for sea level pressure
 
 int chipSelect = 4; //chipSelect pin for the SD card Reader
-File SensorData; //Data object you will write your sesnor data to
+File SensorData; //Data object you will write your sesnor data to. you can call this whatever you'd like
 
 void setup(){
-Serial.begin(9600); //turn on serial monitor
-Sensor.begin();   //initialize pressure sensor mySensor
+Serial.begin(9600); //turn on serial monitor . tools-> serial monitor is a great way to see what your arduino is thinking about
+Sensor.begin();   //initialize pressure sensor 'Sensor'
 
 pinMode(10, OUTPUT); //Must declare 10 an output and reserve it
 SD.begin(4); //Initialize the SD card reader
 }
 
 void loop() {
+// ok back to the sound example from earlier here is where you will tell the arduino the name of your sensor and to read its data
 tempC = Sensor.readTemperature(); //Read Temperature from BMP180
 pressure = Sensor.readPressure(); //Read Pressure
 altitude = Sensor.readAltitude(); //Altitude
 sealevelpressure = Sensor.readSealevelPressure();
 
-SensorData = SD.open("Ein_Data.txt", FILE_WRITE);
+SensorData = SD.open("Ein_Data.txt", FILE_WRITE); // this creates a file of your name choice and writes the data in it.
+// if we wanted to add sound to this we would have to create three more lines in the same fashion and then have it print the output of our hypothetical sound sensor
 if (SensorData) {
 Serial.print("The Temp is: "); //Print Your results
 Serial.print(tempC);
@@ -47,7 +51,7 @@ Serial.println(" meters (calculated)");
 Serial.println("");
 delay(250); //for the test I have it at a 250 ms delay for our actual launch I believe a higher delay would be more ideal, and save battery power.
 
-
+// most important part for the final use of our example this section is where we tell the arduino to write what it is reading to a file 
 SensorData.print(tempC);                             //write temperature data to card
 SensorData.print(",");                               //write a commma
 SensorData.print(pressure);
@@ -56,5 +60,7 @@ SensorData.print(altitude);                        //write pressure
 SensorData.print(",");
 SensorData.println(sealevelpressure);            // and end the line (println)
 SensorData.close();                                  //close the file
+// dont forget when done open a excel spread sheet then open the text file you made with this sensor in it. a screen will come up hit next and when prompted click 'commas' this will autolog all of your data into the spreadsheets cells.
+
 }
 }
