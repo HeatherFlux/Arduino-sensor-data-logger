@@ -18,10 +18,10 @@ Steps
 - 2. Install adafruit’s BMP085 library
 - 3. Open up the data logging code from github
 - 4. Put together your Arduino, ethernet shield, and sensor
-- -Attach ethernet shield to arduino
-- -Attach Sensor to bread board
-- -Run wires from: 3.3V to VIN, GND to GND, A4 to SDA, A5 to SCL
-- -Plug into computer
+  Attach ethernet shield to arduino
+  Attach Sensor to bread board
+  Run wires from: 3.3V to VIN, GND to GND, A4 to SDA, A5 to SCL
+  Plug into computer
 - 5. Verify
 - 6. Run
 
