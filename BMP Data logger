@@ -26,18 +26,22 @@ void setup(){
 
   pinMode(10, OUTPUT); //Must declare 10 an output and reserve it
   SD.begin(4); //Initialize the SD card reader
-  if (!Sensor.begin()) {
-        digitalWrite(redPin, HIGH);
-	Serial.println("DANGER! DANGER! Check wiring, Check code, Check welll I don't know just look busy");
-	{}
-  }
+  
 }
 void loop() {
-  
-  if (Sensor.begin()) {
-  digitalWrite(greenPin, HIGH);
+
+  if (!Sensor.begin()) 
+  {
+        digitalWrite(redPin, HIGH); // turns on red warning LED
+        digitalWrite(greenPin, LOW); // turns off green LED
+	Serial.println("DANGER! DANGER! Check wiring, Check code, Check well... I don't know just look busy");
   }
+    else 
+  {
+  (Sensor.begin());
   
+  digitalWrite(greenPin, HIGH); // turns on the green pin
+  digitalWrite(redPin, LOW); // turns off red warning LED
   tempC = Sensor.readTemperature(); //Read Temperature from BMP180
   pressure = Sensor.readPressure(); //Read Pressure
   altitude = Sensor.readAltitude(); //Altitude
@@ -59,7 +63,7 @@ SensorData = SD.open("Ein_Data.txt", FILE_WRITE);
   Serial.println(" meters (calculated)");
   Serial.println("");
 
-delay(250); //for the test I have it at a 250 ms delay for our actual launch I believe a higher delay would be more ideal, and save battery power.
+delay(500); //for the test I have it at a 500 ms delay for our actual launch I believe a higher delay would be more ideal, and save battery power.
 
 
 SensorData.print(tempC);                             //write temperature data to card
@@ -70,5 +74,6 @@ SensorData.print(altitude);                        //write pressure and end the 
 SensorData.print(",");
 SensorData.println(sealevelpressure);
 SensorData.close();                                  //close the file
+}
 }
 }
