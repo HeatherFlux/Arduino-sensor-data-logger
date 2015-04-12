@@ -1,11 +1,11 @@
 # Startup guide for using the Arduino with your ethernet shield's SD card slot to collect and save data from the launches.
  
 Ingredients
--Arduino Uno
--Ethernet Shield
--BMP180
--4 jump wires
--USB cable
+- Arduino Uno
+- Ethernet Shield
+- BMP180
+- 4 jump wires
+- USB cable
 
 Downloads
 - Adafruit BMP085 Arduino Library (https://learn.adafruit.com/bmp085/using-the-bmp085)
@@ -19,9 +19,9 @@ Steps
 - 3. Open up the data logging code from github
 - 4. Put together your Arduino, ethernet shield, and sensor
     - Attach ethernet shield to arduino
-    -Attach Sensor to bread board
-    -Run wires from: 3.3V to VIN, GND to GND, A4 to SDA, A5 to SCL
-    -Plug into computer
+    - Attach Sensor to bread board
+    - Run wires from: 3.3V to VIN, GND to GND, A4 to SDA, A5 to SCL
+    - Plug into computer
 - 5. Verify
 - 6. Run
 
