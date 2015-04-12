@@ -8,9 +8,9 @@ Ingredients
 -USB cable
 
 Downloads
--Adafruit BMP085 Arduino Library (https://learn.adafruit.com/bmp085/using-the-bmp085)
--Arduino’s 1.6.3 (http://arduino.cc/en/Main/Software)
--Data logging code (https://github.com/hnelson7/Arduino-sensor-data-logger/archive/master.zip)
+1. Adafruit BMP085 Arduino Library (https://learn.adafruit.com/bmp085/using-the-bmp085)
+2. Arduino’s 1.6.3 (http://arduino.cc/en/Main/Software)
+3. Data logging code (https://github.com/hnelson7/Arduino-sensor-data-logger/archive/master.zip)
 
 
 Steps
