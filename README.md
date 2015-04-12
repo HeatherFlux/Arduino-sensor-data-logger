@@ -21,11 +21,13 @@ Steps
     - Attach ethernet shield to arduino
     - Attach Sensor to bread board
     - Run wires from: 3.3V to VIN, GND to GND, A4 to SDA, A5 to SCL
+    - Run wire from 7 to board to 330 ohm resistor(RRBB) to green LED then from green to GND
+    - Run Wire from 8 to board to 330 ohm resistor(RRBB) to red LED the from the LED to the GND 
     - Plug into computer
 - 5. Verify
 - 6. Run
 
 This is the most stripped down instructions to setting up and running for your first time. Next I’m gonna go over some of the commands and how to tailor them to your needs.  
 
-!<<<see the file for instructions>>>!
+!see the file for instructions!
 
