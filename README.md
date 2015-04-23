@@ -29,5 +29,5 @@ Steps
 - 5. Verify
 - 6. Run
 
-
+https://cloud.githubusercontent.com/assets/8889460/7301070/e68cfc60-e9a5-11e4-9774-f0b36fd8c320.png
 
