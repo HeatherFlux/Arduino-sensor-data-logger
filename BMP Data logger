@@ -39,16 +39,26 @@ void loop() {
     else 
   {
   (Sensor.begin());
+  SensorData = SD.open("Ein_Data.txt", FILE_WRITE);
   
+  if (!SensorData) 
+  {
+  
+        digitalWrite(redPin, HIGH); // turns on red warning LED
+        digitalWrite(greenPin, LOW); // turns off green LED
+	Serial.println("Check SD Card, Then Press Reset");
+        delay(2000);
+  }
+  
+  else 
+  {
+  (SensorData); 
   digitalWrite(greenPin, HIGH); // turns on the green pin
   digitalWrite(redPin, LOW); // turns off red warning LED
   tempC = Sensor.readTemperature(); //Read Temperature from BMP180
   pressure = Sensor.readPressure(); //Read Pressure
   altitude = Sensor.readAltitude(); //Altitude
   sealevelpressure = Sensor.readSealevelPressure();
-
-SensorData = SD.open("Ein_Data.txt", FILE_WRITE);
-  if (SensorData) {
   Serial.print("The Temp is: "); //Print Your results
   Serial.print(tempC);
   Serial.println(" degrees C");
@@ -76,4 +86,8 @@ SensorData.println(sealevelpressure);
 SensorData.close();                                  //close the file
 }
 }
+
 }
+
+ 
+  
