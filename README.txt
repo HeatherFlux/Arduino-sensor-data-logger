@@ -4,6 +4,7 @@ Parts
 - Arduino Uno
 - Ethernet Shield
 - BMP180
+- 2x 220 ohm Resistors
 - Jump wires
 - USB cable
 - Green Led
@@ -23,12 +24,12 @@ Steps
     - Attach ethernet shield to arduino
     - Attach Sensor to bread board
     - Run wires from: 3.3V to VIN, GND to GND, A4 to SDA, A5 to SCL
-    - Run wire from 7 to board to 330 ohm resistor(RRBB) to green LED then from green to GND
-    - Run Wire from 8 to board to 330 ohm resistor(RRBB) to red LED the from the LED to the GND 
+    - Run wire from 7 to board to 220 ohm resistor(RRBB) to green LED then from green to GND
+    - Run Wire from 8 to board to 220 ohm resistor(RRBB) to red LED the from the LED to the GND 
     - Plug into computer
 - 5. Verify
 - 6. Run
 
 -image of board
-https://cloud.githubusercontent.com/assets/8889460/7301070/e68cfc60-e9a5-11e4-9774-f0b36fd8c320.png
+
 
