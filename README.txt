@@ -31,5 +31,5 @@ Steps
 - 6. Run
 
 -image of board
-
+https://testingarduino.files.wordpress.com/2015/05/data-logger_bb.jpg
 
