@@ -4,6 +4,7 @@
 
 #include "Wire.h"    // imports the wire library for talking over I2C 
 #include "Adafruit_BMP085.h"  // import the Pressure Sensor Library We are using Version one of Adafruit API for this sensor
+
 Adafruit_BMP085 Sensor;  // create sensor object called mySensor
 
 // Ok everyone so this is the base that we will have for our data output to sd card coding.
@@ -24,7 +25,7 @@ void setup(){
   Serial.begin(9600); //turn on serial monitor
   Sensor.begin();   //initialize pressure sensor mySensor
 
- 
+  
   SD.begin(4); //Initialize the SD card reader
   
 }
@@ -88,6 +89,9 @@ SensorData.close();                                  //close the file
 }
 
 }
+
+ 
+  
 
  
   
