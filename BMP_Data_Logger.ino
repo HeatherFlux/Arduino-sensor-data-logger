@@ -24,7 +24,7 @@ void setup(){
   Serial.begin(9600); //turn on serial monitor
   Sensor.begin();   //initialize pressure sensor mySensor
 
-  pinMode(10, OUTPUT); //Must declare 10 an output and reserve it
+ 
   SD.begin(4); //Initialize the SD card reader
   
 }
