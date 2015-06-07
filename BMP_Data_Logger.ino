@@ -12,6 +12,7 @@ float tempC;  // Variable for holding temp in C
 float pressure; //Variable for holding pressure reading
 float altitude; //Variable Fo altitude
 float sealevelpressure;
+float al;
 
 const int greenPin = 7; //this is here for us to activate our pin warning system.
 const int redPin = 8; 
@@ -24,11 +25,35 @@ void setup(){
   pinMode(greenPin, OUTPUT);
   Serial.begin(9600); //turn on serial monitor
   Sensor.begin();   //initialize pressure sensor mySensor
+  if (!SD.begin(4)) {
+    Serial.println("Card failed, or not present");
+    // don't do anything more:
+    return;
+    
+  }
+   Serial.println("card initialized.");
+   PrintHeader();
+  
 
   
-  SD.begin(4); //Initialize the SD card reader
-  
 }
+
+void PrintHeader() // this function prints header to SD card
+{
+   File dataFile = SD.open("home.txt", FILE_WRITE);
+   if (dataFile)
+   {
+      String header = "Temperature (C), Pressure (Pa), Real Altitude (m), Altitude (m), Sea Level Pressure (m)";
+      dataFile.println(header);
+      dataFile.close();
+      Serial.println("Header Printed");
+   }
+   else
+   {
+     Serial.println("ERROR: Datafile or SD card unavailable");
+   }
+}
+
 void loop() {
 
   if (!Sensor.begin()) 
@@ -58,7 +83,8 @@ void loop() {
   digitalWrite(redPin, LOW); // turns off red warning LED
   tempC = Sensor.readTemperature(); //Read Temperature from BMP180
   pressure = Sensor.readPressure(); //Read Pressure
-  altitude = Sensor.readAltitude(); //Altitude
+  altitude = Sensor.readAltitude(101820); //Altitude
+  al = Sensor.readAltitude();
   sealevelpressure = Sensor.readSealevelPressure();
   Serial.print("The Temp is: "); //Print Your results
   Serial.print(tempC);
@@ -66,9 +92,12 @@ void loop() {
   Serial.print("The Pressure is: ");
   Serial.print(pressure);
   Serial.println(" Pa.");
-  Serial.print("The Altitude is: ");
+  Serial.print("The Real Altitude is: ");
   Serial.print(altitude);
   Serial.println(" meters");
+  Serial.print("The Altitude is: ");
+  Serial.print(al);
+  Serial.println("Meters");
   Serial.print("The Sea Level Pressure is: ");
   Serial.print(sealevelpressure);
   Serial.println(" meters (calculated)");
@@ -89,9 +118,6 @@ SensorData.close();                                  //close the file
 }
 
 }
-
- 
-  
 
  
   
