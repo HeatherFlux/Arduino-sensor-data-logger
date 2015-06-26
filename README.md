@@ -13,7 +13,6 @@ Parts
 Downloads
 - Adafruit's BMP085 Arduino Library (https://learn.adafruit.com/bmp085/using-the-bmp085)
 - Arduino’s IDE 1.6.3 (http://arduino.cc/en/Main/Software)
-- Data logging code (https://drive.google.com/file/d/0B1FSa7JabSjpVmZuWUVrekY3SWs/view?usp=sharing)
 
 
 Steps
