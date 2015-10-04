@@ -14,6 +14,8 @@ Downloads
 - Adafruit's BMP085 Arduino Library (https://learn.adafruit.com/bmp085/using-the-bmp085)
 - Arduino’s IDE 1.6.3 (http://arduino.cc/en/Main/Software)
 
+Full Tutorial
+- (https://testingarduino.wordpress.com/2015/05/30/2/)
 
 Steps
 - 1. Install Arduino's IDE
